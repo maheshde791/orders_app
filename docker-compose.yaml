@@ -1,0 +1,16 @@
+version: "3"
+services:
+  task:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    command: python main.py
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    command: python -m unittest discover -s tests -p 'test.py'
